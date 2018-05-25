@@ -1,0 +1,52 @@
+_schema-version: '2.0'
+ID: tinyworld
+version: 0.0.1
+
+modules:
+ - name: tinydb
+   type: hdb
+   path: tinydb
+   requires:
+    - name: hdi-container
+      properties:
+        TARGET_CONTAINER: ~{hdi-container-name}
+    - name: CrossContainerService
+    - name: CrossSchemaService
+
+
+ - name: tinyjs
+   type: nodejs
+   path: tinyjs
+   requires:
+    - name: tinydb
+    - name: hdi-container
+   provides:
+    - name: tinyjs_api
+      properties:
+       service_url: ${default-url}
+      
+ - name: tinyui
+   type: html5
+   path: tinyui
+   requires:
+    - name: tinyjs_api
+      group: destinations
+      properties:
+        name: tinyjs_be
+        url: ~{service_url}
+
+resources:
+ - name: hdi-container
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
+   
+ - name: CrossContainerService
+   type: org.cloudfoundry.existing-service
+   parameters:
+     service-name: 'X059463-v98xp4usoq4ppg3h-Foreign_Project-hdi-container'
+     
+ - name: CrossSchemaService
+   type: org.cloudfoundry.existing-service
+   parameters:
+     service-name: CROSS_SCHEMA_SERVICE

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="tinyworld.tinydb::ZCV_SYNONYM" applyPrivilegeType="NONE" dataCategory="CUBE" dimensionType="" schemaVersion="3.0" defaultClient="$$client$$" visibility="reportingEnabled" outputViewType="Aggregation" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="ZCV_SYNONYM"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="tinyworld.tinydb::Synonym_0">
+    <resourceUri>tinyworld.tinydb::Synonym_0</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="A">
+        <descriptions defaultDescription="A"/>
+      </viewAttribute>
+      <viewAttribute id="B">
+        <descriptions defaultDescription="B"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="dummy" datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+        <formula>0</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="tinyworld.tinydb::Synonym_0">
+      <mapping xsi:type="Calculation:AttributeMapping" target="A" source="A"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B" source="B"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="A" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="A"/>
+      <keyMapping columnObjectName="Projection_1" columnName="A"/>
+    </attribute>
+    <attribute id="B" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B"/>
+      <keyMapping columnObjectName="Projection_1" columnName="B"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="dummy" order="3" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="dummy"/>
+      <measureMapping columnObjectName="Projection_1" columnName="dummy"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="217"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

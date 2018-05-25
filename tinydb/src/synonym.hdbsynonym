@@ -1,0 +1,14 @@
+{
+  "tinyworld.tinydb::Synonym_0": {
+    "target": {
+      "object": "ZTESTSF",
+      "schema": "I059463"
+    }
+  },
+  "tinyworld.tinydb::Synonym_1": {
+    "target": {
+      "object": "table_definition.Table1",
+      "schema": "TPJIJNX327ECQOPC_FOREIGN_PROJECT_HDI_CONTAINER"
+    }
+  }
+}
