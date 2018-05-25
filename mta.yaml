@@ -8,6 +8,7 @@ modules:
    path: tinydb
    requires:
     - name: hdi-container
+<<<<<<< HEAD
       properties:
         TARGET_CONTAINER: ~{hdi-container-name}
     - name: CrossContainerService
@@ -50,3 +51,33 @@ resources:
    type: org.cloudfoundry.existing-service
    parameters:
      service-name: CROSS_SCHEMA_SERVICE
+=======
+
+
+ - name: tinyjs
+   type: nodejs
+   path: tinyjs
+   requires:
+    - name: tinydb
+    - name: hdi-container
+   provides:
+    - name: tinyjs_api
+      properties:
+       service_url: ${default-url}
+      
+ - name: tinyui
+   type: html5
+   path: tinyui
+   requires:
+    - name: tinyjs_api
+      group: destinations
+      properties:
+        name: tinyjs_be
+        url: ~{service_url}
+
+resources:
+ - name: hdi-container
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
+>>>>>>> refs/remotes/origin/master

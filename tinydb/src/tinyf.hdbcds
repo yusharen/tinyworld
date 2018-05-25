@@ -1,4 +1,5 @@
 namespace tinyworld.tinydb; 
+<<<<<<< HEAD
 //using Synonym_0 as Synonym;
 context tinyf {
 
@@ -19,4 +20,20 @@ View LOC_VIEW as
            "continent"
         };
 */
+=======
+
+context tinyf {
+
+  entity world {
+
+    key continent: String(100);
+
+  };
+
+entity country{
+ key name : String(100);
+partof: Association[0..1] to world;
+};
+
+>>>>>>> refs/remotes/origin/master
 }; 
